@@ -1,4 +1,7 @@
+//types
 import { Category, Word } from "../types";
+
+//get data from json file
 import { getTestData } from "../utils/functions";
 
 //shuffle word list to have random words each time
@@ -21,7 +24,7 @@ const randomizeWordList = (wordList: Word[]) => {
 
 //make sure to have at least one word for each category of part of speech in the test 
 const filterWordList = (wordList: Word[]) => {
-    const testWords: Word[] = [], categories: any = {};
+    const testWords: Word[] = [], categories: Category | any = {};
 
 
     for (let i = 0; i < wordList.length; i++) {
@@ -43,6 +46,7 @@ const filterWordList = (wordList: Word[]) => {
 
     return testWords;
 }
+
 export const getTestQuestions = () => {
     const { wordList } = getTestData();
     const randomWordList = randomizeWordList(wordList);

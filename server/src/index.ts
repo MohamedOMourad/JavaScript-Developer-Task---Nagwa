@@ -3,6 +3,7 @@ import cors from "cors";
 import morgan from "morgan";
 import helmet from "helmet";
 import wordsRouter from './routers/words'
+import rankRouter from './routers/rank'
 const app = express();
 
 app.use(cors({
@@ -13,7 +14,11 @@ app.use(helmet());
 app.use(json());
 app.use(urlencoded({ extended: false }));
 app.use("/words", wordsRouter);
+app.use("/rank", rankRouter);
 
+app.get('/', (req, res) => {
+    res.status(200).json({ message: "Server Running" })
+})
 app.get('*', (req, res) => {
     res.status(404).json({ message: "incorrect end point" })
 })
