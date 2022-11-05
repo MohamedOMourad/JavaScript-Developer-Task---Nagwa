@@ -1,27 +1,39 @@
-import React, { useEffect, useState } from 'react';
-import './App.css';
-import Home from './components/Home';
-import { getTestQuestions } from './utils/API';
+// React
+import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import './App.css';
+
+// Custom Components
+import Home from './components/Home';
+import Rank from './components/Rank';
 import Practice from './components/Practice';
+import NotFound from './components/NotFound';
+
+//redux
+import { setQuestions } from './redux/practice';
 import { useAppDispatch } from "./redux/app/hooks";
-import { setQuestions } from './redux/test/questions';
+
+//functions
+import { getTestQuestions } from './utils/API';
 
 function App() {
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
+
+  //get test questions from API
   useEffect(() => {
-    getQuestions()
+    (async () => {
+      const questions = await getTestQuestions();
+      dispatch(setQuestions(questions))
+    })()
   }, [])
 
-  const getQuestions = async () => {
-    const questions = await getTestQuestions();
-    dispatch(setQuestions(questions))
-  }
   return (
     <div className="App">
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/practice' element={<Practice />} />
+        <Route path='/rank' element={<Rank />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </div>
   );

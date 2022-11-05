@@ -3,11 +3,11 @@ import { useAppSelector } from '../redux/app/hooks';
 import ProgressBar from './ProgressBar';
 import QuestionBody from './QuestionBody';
 import { FcCheckmark } from 'react-icons/fc';
-
+import { Link } from 'react-router-dom';
 const Practice = () => {
-    const [active, setActive] = useState(0);
+    const [activeQuestion, setActiveQuestion] = useState(0);
     const [progress, setProgress] = useState(0);
-    const questions = useAppSelector((state) => state.questions.questions)
+    const questions = useAppSelector((state) => state.practice.questions);
     return (
         <main className='main-practice'>
             <section className='question'>
@@ -16,12 +16,12 @@ const Practice = () => {
                     <ProgressBar progress={progress} />
                     {questions.map((question, index) => (
                         <div key={question.id}>
-                            <QuestionBody question={question} index={index} active={active} setActive={setActive} setProgress={setProgress} />
+                            <QuestionBody question={question} index={index} activeQuestion={activeQuestion} setActiveQuestion={setActiveQuestion} setProgress={setProgress} />
                         </div>
                     ))
                     }
                 </div>
-                {active + 1 > questions.length &&
+                {activeQuestion + 1 > questions.length &&
                     <div className='submit'>
                         <div className='success'>
                             <FcCheckmark size={80} />
@@ -29,7 +29,7 @@ const Practice = () => {
                         <h2>
                             Thank You!
                         </h2>
-                        <a href="/rank" className='btn'>See Your Rank</a>
+                        <Link to='/rank' className='btn'>See Your Rank</Link>
                     </div>}
             </section>
         </main>

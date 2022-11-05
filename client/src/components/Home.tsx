@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
     return (
@@ -11,15 +12,17 @@ const Home = () => {
             <main>
                 <section className='main-section'>
                     <div className='main-image'>
-                        <img src="https://kjwldcclontmioflpfvx.supabase.co/storage/v1/object/public/img/student.png" alt="students" />
+                        <img src="https://contents.nagwa.com/content/images/exam-illest.svg" alt="students" />
                     </div>
                     <div className='exam-desc'>
-                        <h1>Exam description</h1>
+                        <h1>Practice</h1>
                         <p>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste dolores itaque, assumenda nemo deleniti earum recusandae vero voluptatum id odit nam veritatis eligendi aliquid enim, ex hic unde amet molestiae.
+                            In English language, words can be categorized according to their syntactic functions, which is known as "Part of Speech".
+                            <br />
+                            so enjoy practice categorizing a set of words according to their part of speech.
                         </p>
                         <div>
-                            <a href='/practice' className='btn'>Start</a>
+                            <Link to='/practice'>Start</Link>
                         </div>
                     </div>
                 </section>

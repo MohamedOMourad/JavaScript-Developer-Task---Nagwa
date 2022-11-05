@@ -1,19 +1,32 @@
 import { useState } from 'react'
+import { useAppDispatch } from '../redux/app/hooks';
+import { setScore } from '../redux/practice';
 import { Question } from '../types';
+
+//choices buttons
 const choices = [
     { id: 0, pos: 'noun' },
     { id: 1, pos: 'adverb' },
     { id: 2, pos: 'adjective' },
     { id: 3, pos: 'verb' }
 ]
-const QuestionBody = ({ question, index, active, setActive, setProgress }: { question: Question, index: number, active: number, setActive: Function, setProgress: Function }) => {
-    const [score, setScore] = useState(0);
+
+type Props = {
+    question: Question,
+    index: number,
+    activeQuestion: number,
+    setActiveQuestion: Function,
+    setProgress: Function
+}
+
+const QuestionBody = ({ question, index, activeQuestion, setActiveQuestion, setProgress }: Props) => {
+    const dispatch = useAppDispatch();
     const [activeBtn, setActiveBtn] = useState(0)
     const [correct, setCorrect] = useState('choice-btn')
     const [disabled, setDisabled] = useState(false)
-    const calcScore = (answer: string) => {
+    const checkAnswer = (answer: string) => {
         if (answer === question.pos) {
-            setScore(score => score + 10)
+            dispatch(setScore(10))
             setCorrect('correct')
         } else {
             setCorrect('wrong')
@@ -21,15 +34,15 @@ const QuestionBody = ({ question, index, active, setActive, setProgress }: { que
     }
     return (
         <div className='relative'>
-            <div className={`${active === index ? 'show' : 'hidden none'} `} id={`x-${index}`}>
+            <div className={`${activeQuestion === index ? 'show' : 'hidden none'} `} id={`x-${index}`}>
                 <p className='question-body'>{question?.word} </p>
                 <div className='choices-container'>
                     {choices.map((choice, index) => (
                         <button
                             onClick={() => {
-                                calcScore(choice.pos)
+                                checkAnswer(choice.pos)
                                 setActiveBtn(choice.id)
-                                setTimeout(() => setActive((val: number) => val + 1), 1000)
+                                setTimeout(() => setActiveQuestion((val: number) => val + 1), 1000)
                                 setProgress((val: number) => val + 10)
                                 setDisabled(true)
                             }}

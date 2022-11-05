@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import questions from "../test/questions";
+import practice from "../practice";
 
 export const store = configureStore({
     reducer: {
-        questions
+        practice
     },
 
 });
