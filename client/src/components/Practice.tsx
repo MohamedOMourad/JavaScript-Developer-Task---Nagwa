@@ -9,9 +9,9 @@ const Practice = () => {
     const [progress, setProgress] = useState(0);
     const questions = useAppSelector((state) => state.practice.questions);
     return (
-        <main className='main-practice'>
-            <section className='question'>
-                <div >
+        <main className='practice-main'>
+            <section>
+                <div>
                     <h2>Choose The correct Answer:</h2>
                     <ProgressBar progress={progress} />
                     {questions.map((question, index) => (
@@ -22,14 +22,14 @@ const Practice = () => {
                     }
                 </div>
                 {activeQuestion + 1 > questions.length &&
-                    <div className='submit'>
+                    <div className='submission'>
                         <div className='success'>
                             <FcCheckmark size={80} />
                         </div>
                         <h2>
                             Thank You!
                         </h2>
-                        <Link to='/rank' className='btn'>See Your Rank</Link>
+                        <Link to='/rank' className='submit-btn'>See Your Rank</Link>
                     </div>}
             </section>
         </main>

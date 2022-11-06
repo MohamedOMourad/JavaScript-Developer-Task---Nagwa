@@ -28,7 +28,7 @@ function App() {
   }, [])
 
   return (
-    <div className="App">
+    <div>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/practice' element={<Practice />} />
@@ -37,6 +37,6 @@ function App() {
       </Routes>
     </div>
   );
-}
+};
 
 export default App;

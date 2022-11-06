@@ -33,9 +33,9 @@ const QuestionBody = ({ question, index, activeQuestion, setActiveQuestion, setP
         }
     }
     return (
-        <div className='relative'>
-            <div className={`${activeQuestion === index ? 'show' : 'hidden none'} `} id={`x-${index}`}>
-                <p className='question-body'>{question?.word} </p>
+        <div className='question'>
+            <div className={`${activeQuestion === index ? 'show-question' : 'hidden-question'} `} id={`x-${index}`}>
+                <p className='question-body'>{question?.word}</p>
                 <div className='choices-container'>
                     {choices.map((choice, index) => (
                         <button
@@ -48,7 +48,9 @@ const QuestionBody = ({ question, index, activeQuestion, setActiveQuestion, setP
                             }}
                             disabled={disabled}
                             key={choice.id}
-                            className={`${activeBtn === index ? correct : 'choice-btn'}`}>{choice.pos}
+                            className={`${activeBtn === index ? correct : 'choice-btn'}`}
+                        >
+                            {choice.pos}
                         </button>
                     ))}
                 </div>
