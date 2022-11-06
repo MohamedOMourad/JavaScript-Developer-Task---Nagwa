@@ -20,19 +20,25 @@ type Props = {
 }
 
 const QuestionBody = ({ question, index, activeQuestion, setActiveQuestion, setProgress }: Props) => {
+
+    const [activeBtn, setActiveBtn] = useState(0)        //add active class for selected btn
+
+    const [correct, setCorrect] = useState('choice-btn') //add correct class for correct btn
+
+    const [disabled, setDisabled] = useState(false)      //prevent select any btn after first selection
+
     const dispatch = useAppDispatch();
-    const [activeBtn, setActiveBtn] = useState(0)
-    const [correct, setCorrect] = useState('choice-btn')
-    const [disabled, setDisabled] = useState(false)
+
+    //check answers, update score, add the appropriate class for correct or wrong 
     const checkAnswer = (answer: string) => {
         if (answer === question.pos) {
-
             dispatch(setCorrectAnswers(1))
             setCorrect('correct')
         } else {
             setCorrect('wrong')
         }
     }
+
     return (
         <div className='question'>
             <div className={`${activeQuestion === index ? 'show-question' : 'hidden-question'} `} id={`x-${index}`}>

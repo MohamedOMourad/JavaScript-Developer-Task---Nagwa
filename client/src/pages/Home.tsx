@@ -10,6 +10,7 @@ const Home = () => {
             </header>
             <main className='home-main'>
                 <section className='Home-section'>
+                    {/* practice description */}
                     <div className='home-desc'>
                         <h1>Practice</h1>
                         <p>
@@ -21,6 +22,7 @@ const Home = () => {
                             <Link to='/practice'>Start Practicing</Link>
                         </div>
                     </div>
+                    {/* practice Image */}
                     <div className='home-image'>
                         <img src="https://contents.nagwa.com/content/images/exam-illest.svg" alt="students" />
                     </div>

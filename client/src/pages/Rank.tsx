@@ -1,19 +1,30 @@
-import React, { useEffect } from 'react'
+//react
+import { useEffect } from 'react'
+
+//react-router-dom
 import { Link } from 'react-router-dom';
+
+//redux
 import { useAppDispatch, useAppSelector } from '../redux/app/hooks';
-import { SetRank, setScore } from '../redux/practiceSlice';
+import { SetRank } from '../redux/practiceSlice';
+
+//API
 import { getRank } from '../utils/API';
 
 const Rank = () => {
-    const dispatch = useAppDispatch()
+
+    const dispatch = useAppDispatch();
     const score = useAppSelector((state) => state.practice.score);
     const rank = useAppSelector((state) => state.practice.rank);
+
+    //get rank from API
     useEffect(() => {
         (async () => {
             const rank = await getRank(score);
             dispatch(SetRank(rank))
         })()
     }, [])
+
     return (
         <main className='rank-main'>
             <section >
@@ -43,6 +54,8 @@ const Rank = () => {
                 </div>
                 <div className='action'>
                     <Link to='/'>Back to home</Link>
+
+                    {/* hided when student grt full score */}
                     {score !== 100 && <Link to='/practice'>Try again</Link>}
                 </div>
             </section>

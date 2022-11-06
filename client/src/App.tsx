@@ -4,16 +4,16 @@ import { Routes, Route } from 'react-router-dom';
 import './App.css';
 
 // Custom Components
-import Home from './components/Home';
-import Rank from './components/Rank';
-import Practice from './components/Practice';
-import NotFound from './components/NotFound';
+import Home from './pages/Home';
+import Rank from './pages/Rank';
+import Practice from './pages/Practice';
+import NotFoundPage from './pages/NotFoundPage';
 
 //redux
 import { setQuestions } from './redux/practiceSlice';
 import { useAppDispatch } from "./redux/app/hooks";
 
-//functions
+//API
 import { getTestQuestions } from './utils/API';
 
 function App() {
@@ -33,7 +33,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/practice' element={<Practice />} />
         <Route path='/rank' element={<Rank />} />
-        <Route path='*' element={<NotFound />} />
+        <Route path='*' element={<NotFoundPage />} />
       </Routes>
     </div>
   );

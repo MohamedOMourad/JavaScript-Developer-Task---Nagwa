@@ -9,7 +9,6 @@ rank.post('/', (req, res) => {
         const rank = getRank(score);
         res.status(200).json({ rank })
     } catch (error) {
-        console.log(error);
         res.status(500).json({ message: 'bad request' })
     }
 

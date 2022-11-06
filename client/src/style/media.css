@@ -1,0 +1,53 @@
+@media screen and (max-width:1024px) {
+    .home-desc p {
+        margin: 30px 0;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .Home-section {
+        flex-direction: column;
+    }
+
+    .home-desc {
+        width: 85%;
+    }
+
+    .home-desc h1 {
+        margin-top: 0px;
+    }
+
+    .home-image img {
+        display: none;
+    }
+
+    .practice-main section {
+        min-height: 400px;
+    }
+
+    .show-question {
+        height: 100px;
+    }
+
+    .rank-main section {
+        min-height: 400px;
+    }
+}
+
+
+@media screen and (max-width:500px) {
+    .choices-container {
+        margin-top: 10vh;
+        gap: 30px;
+        flex-direction: column;
+    }
+
+    .practice-main section {
+        min-height: 100vh;
+        padding: 30px;
+    }
+
+    .rank-main section {
+        min-height: 100vh;
+    }
+}

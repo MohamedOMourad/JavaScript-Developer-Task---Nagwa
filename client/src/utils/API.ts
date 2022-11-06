@@ -11,7 +11,6 @@ export const getTestQuestions = async (): Promise<Question[]> => {
 }
 
 export const getRank = async (score: number): Promise<number> => {
-    console.log(score)
     const res = await API.post('/rank', { score });
     const data = await res.data;
     const rank = await data.rank

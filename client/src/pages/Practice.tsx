@@ -1,15 +1,28 @@
+//react
 import { useEffect, useState } from 'react'
-import { useAppDispatch, useAppSelector } from '../redux/app/hooks';
-import ProgressBar from './ProgressBar';
-import QuestionBody from './QuestionBody';
+
+//Custom components
+import ProgressBar from '../components/ProgressBar';
+import QuestionBody from '../components/QuestionBody';
+
+//react-icons
 import { FcCheckmark } from 'react-icons/fc';
-import { Link } from 'react-router-dom';
+
+//redux
+import { useAppDispatch, useAppSelector } from '../redux/app/hooks';
 import { resetResult, setScore } from '../redux/practiceSlice';
+
+//react-router-dom
+import { Link } from 'react-router-dom';
+
 const Practice = () => {
-    const dispatch = useAppDispatch()
-    const [activeQuestion, setActiveQuestion] = useState(0);
-    const [progress, setProgress] = useState(0);
+
+    const [activeQuestion, setActiveQuestion] = useState(0);//add active class for present question
+
+    const [progress, setProgress] = useState(0);//dynamic increment progress bar
+
     const questions = useAppSelector((state) => state.practice.questions);
+    const dispatch = useAppDispatch()
 
     useEffect(() => {
         dispatch(resetResult())
@@ -20,14 +33,23 @@ const Practice = () => {
             <section>
                 <div>
                     <h2>Choose The correct Answer:</h2>
+
+                    {/* Progress bar */}
                     <ProgressBar progress={progress} />
+
                     {questions.map((question, index) => (
                         <div key={question.id}>
-                            <QuestionBody question={question} index={index} activeQuestion={activeQuestion} setActiveQuestion={setActiveQuestion} setProgress={setProgress} />
+                            <QuestionBody question={question} index={index}
+                                activeQuestion={activeQuestion}
+                                setActiveQuestion={setActiveQuestion}
+                                setProgress={setProgress}
+                            />
                         </div>
                     ))
                     }
                 </div>
+
+                {/* show submission button when final question end */}
                 {activeQuestion + 1 > questions.length &&
                     <div className='submission'>
                         <div className='success'>

@@ -1,7 +1,7 @@
 
 const ProgressBar = ({ progress }: { progress: number }) => {
     return (
-        <div>
+        <div className="question-progress">
             <div className='question-count'>
                 Question {progress / 10} / 10
             </div>
