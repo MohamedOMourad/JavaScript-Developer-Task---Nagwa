@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import practice from "../practice";
+import practice from "../practiceSlice";
 
 export const store = configureStore({
     reducer: {

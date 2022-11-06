@@ -7,7 +7,7 @@ import rankRouter from './routers/rank'
 const app = express();
 
 app.use(cors({
-    origin: "http://localhost:3000"
+    origin: ["http://localhost:3000","https://java-script-developer-task-nagwa.vercel.app"]
 }))
 app.use(morgan("dev"));
 app.use(helmet());

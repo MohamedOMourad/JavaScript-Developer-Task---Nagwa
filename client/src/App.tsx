@@ -10,7 +10,7 @@ import Practice from './components/Practice';
 import NotFound from './components/NotFound';
 
 //redux
-import { setQuestions } from './redux/practice';
+import { setQuestions } from './redux/practiceSlice';
 import { useAppDispatch } from "./redux/app/hooks";
 
 //functions

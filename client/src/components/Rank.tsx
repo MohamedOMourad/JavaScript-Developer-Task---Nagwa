@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../redux/app/hooks';
-import { SetRank } from '../redux/practice';
+import { SetRank, setScore } from '../redux/practiceSlice';
 import { getRank } from '../utils/API';
 
 const Rank = () => {
@@ -43,7 +43,7 @@ const Rank = () => {
                 </div>
                 <div className='action'>
                     <Link to='/'>Back to home</Link>
-                    <Link to='/practice'>Try again</Link>
+                    {score !== 100 && <Link to='/practice'>Try again</Link>}
                 </div>
             </section>
         </main>

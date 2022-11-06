@@ -1,13 +1,20 @@
-import { useState } from 'react'
-import { useAppSelector } from '../redux/app/hooks';
+import { useEffect, useState } from 'react'
+import { useAppDispatch, useAppSelector } from '../redux/app/hooks';
 import ProgressBar from './ProgressBar';
 import QuestionBody from './QuestionBody';
 import { FcCheckmark } from 'react-icons/fc';
 import { Link } from 'react-router-dom';
+import { resetResult, setScore } from '../redux/practiceSlice';
 const Practice = () => {
+    const dispatch = useAppDispatch()
     const [activeQuestion, setActiveQuestion] = useState(0);
     const [progress, setProgress] = useState(0);
     const questions = useAppSelector((state) => state.practice.questions);
+
+    useEffect(() => {
+        dispatch(resetResult())
+    }, [])
+
     return (
         <main className='practice-main'>
             <section>
@@ -29,7 +36,7 @@ const Practice = () => {
                         <h2>
                             Thank You!
                         </h2>
-                        <Link to='/rank' className='submit-btn'>See Your Rank</Link>
+                        <Link onClick={() => dispatch(setScore())} to='/rank' className='submit-btn'>See Your Rank</Link>
                     </div>}
             </section>
         </main>

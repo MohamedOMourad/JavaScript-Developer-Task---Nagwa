@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useAppDispatch } from '../redux/app/hooks';
-import { setScore } from '../redux/practice';
+import { setCorrectAnswers, setScore } from '../redux/practiceSlice';
 import { Question } from '../types';
 
 //choices buttons
@@ -26,7 +26,8 @@ const QuestionBody = ({ question, index, activeQuestion, setActiveQuestion, setP
     const [disabled, setDisabled] = useState(false)
     const checkAnswer = (answer: string) => {
         if (answer === question.pos) {
-            dispatch(setScore(10))
+
+            dispatch(setCorrectAnswers(1))
             setCorrect('correct')
         } else {
             setCorrect('wrong')
