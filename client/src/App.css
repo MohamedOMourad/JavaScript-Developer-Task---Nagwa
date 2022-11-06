@@ -1,5 +1,11 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 .container {
-  margin: 20px 34px;
+  padding: 20px 34px;
 }
 
 #logo {
@@ -12,7 +18,7 @@ header {
 
 .Home-section {
   background-color: #026bb0;
-  min-height: 83.5vh;
+  min-height: calc(100vh - 104px);
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -114,8 +120,9 @@ header {
 .practice-main section {
   background-color: #d6d6e7;
   margin: auto;
-  width: 45vw;
-  min-height: 90vh;
+  width: 500px;
+  max-height: 700px;
+  min-height: 600px;
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -223,6 +230,7 @@ header {
   -moz-transition: all 0.5s ease-in;
   -ms-transition: all 0.5s ease-in;
   -o-transition: all 0.5s ease-in;
+  height: 200px;
 }
 
 .choices-container {
@@ -357,7 +365,7 @@ header {
 }
 
 .rank-main {
-  background-color: #607d8b;
+  background-color: #a677e2;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
@@ -367,8 +375,8 @@ header {
 .rank-main section {
   background-color: #ffff;
   margin: auto;
-  width: 45vw;
-  height: 90vh;
+  width: 500px;
+  height: 600px;
   border-radius: 0 0 10px 10px;
   -webkit-border-radius: 0 0 10px 10px;
   -moz-border-radius: 0 0 10px 10px;
@@ -497,6 +505,10 @@ header {
   font-size: 1.6em;
 }
 
+.student-score p {
+  margin-top: 20px;
+}
+
 .questions-analysis {
   display: flex;
   gap: 11px;
@@ -585,4 +597,58 @@ header {
   justify-content: center;
   align-items: center;
   font-size: 2em;
+}
+
+@media screen and (max-width:1024px) {
+  .home-desc p {
+    margin: 30px 0;
+  }
+}
+
+@media screen and (max-width:768px) {
+  .Home-section {
+    flex-direction: column;
+  }
+
+  .home-desc {
+    width: 85%;
+  }
+
+  .home-desc h1 {
+    margin-top: 0px;
+  }
+
+  .home-image img {
+    display: none;
+  }
+
+  .practice-main section {
+    min-height: 400px;
+  }
+
+  .show-question {
+    height: 100px;
+  }
+
+  .rank-main section {
+    min-height: 400px;
+  }
+}
+
+
+@media screen and (max-width:500px) {
+  .choices-container {
+    margin-top: 15vh;
+    gap: 30px;
+    flex-direction: column;
+  }
+
+  .practice-main section {
+    min-height: 100vh;
+    padding: 30px;
+  }
+
+  .rank-main section {
+    min-height: 100vh;
+  }
 }
