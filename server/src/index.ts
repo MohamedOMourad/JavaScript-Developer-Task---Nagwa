@@ -24,3 +24,9 @@ app.get('/', (req, res) => {
 app.get('*', (req, res) => {
     res.status(404).json({ message: "incorrect end point" });
 });
+
+const PORT = 8000;
+
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});

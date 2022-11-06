@@ -4,7 +4,7 @@ export interface Word {
     "pos": string
 }
 
-export interface Category {
+export interface WordCategory {
     "noun": Word,
     "verb": Word,
     "adverb": Word,

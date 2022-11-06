@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useAppDispatch } from '../redux/app/hooks';
 import { setCorrectAnswers, setScore } from '../redux/practiceSlice';
-import { Question } from '../types';
+import { Question } from '../interface/question';
 
 //choices buttons
 const choices = [

@@ -1,5 +1,5 @@
 //types
-import { Category, Word } from "../types";
+import { WordCategory, Word } from "../interface/word";
 
 //get data from json file
 import { getTestData } from "../utils/functions";
@@ -24,7 +24,7 @@ const randomizeWordList = (wordList: Word[]) => {
 
 //make sure to have at least one word for each category of part of speech in the test 
 const filterWordList = (wordList: Word[]) => {
-    const testWords: Word[] = [], categories: Category | any = {};
+    const testWords: Word[] = [], categories: WordCategory | any = {};
 
 
     for (let i = 0; i < wordList.length; i++) {

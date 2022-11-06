@@ -32,7 +32,7 @@ const Practice = () => {
         <main className='practice-main'>
             <section>
                 <div>
-                    <h2>Choose The correct Answer:</h2>
+                    <h2>Choose The Correct Answer:</h2>
 
                     {/* Progress bar */}
                     <ProgressBar progress={progress} />

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Question } from "../types";
+import { Question } from "../interface/question";
 
 type Result = {
     questions: Question[],
