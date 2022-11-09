@@ -50,7 +50,7 @@ const Practice = () => {
                 </div>
 
                 {/* show submission button when final question end */}
-                {activeQuestion + 1 > questions.length &&
+                {(activeQuestion + 1 > questions.length && questions.length > 0) &&
                     <div className='submission'>
                         <div className='success'>
                             <FcCheckmark size={80} />
